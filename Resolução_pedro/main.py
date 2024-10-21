@@ -76,4 +76,29 @@ while True:
         break
 
     else:
-        print("Opção invalida!!")    
+        print("Opção invalida!!")  
+
+## ATIVIDADE 4
+num_sortd = random.randint(1,1000)
+
+attemps = []
+
+while True:
+    
+    attemp = int(input("tente um número: "))
+    
+    if attemp == num_sortd:
+        print("#######################\n")
+        print("Parabên você acertou!!! ")
+        print("#######################\n")
+        break
+    elif attemp > num_sortd:
+        print("Alto, tente um número mais baixo...")
+        attemps.append(attemp)
+        print("Números tentados...")
+        print(attemps)
+    elif attemp < num_sortd:
+        print("Baixo, tente um número mais alto...")
+        attemps.append(attemp)
+        print("Números tentados...")
+        print(attemps)
