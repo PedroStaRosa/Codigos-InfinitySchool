@@ -15,8 +15,8 @@ def count_works(txt):
 def palindrome(txt):
     
     result = invert_string(txt)
-    
-    if result == txt:
+      
+    if result.lower() == txt.lower():
         return f"é um palíndromo"
     
     return f"não é um palíndromo"
