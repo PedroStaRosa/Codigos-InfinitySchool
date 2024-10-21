@@ -24,6 +24,9 @@ while True:
     
     if choice == None:
         continue
+    else choice == 6:
+        print("Ate Logo...")
+        break
         
     num1 = float(input("Digite um primeiro número:  ")) 
     num2 = float(input("Digite um segundo número:  "))    
@@ -49,8 +52,6 @@ while True:
         result = exponentiation(num1, num2)
         print(result)
         
-    else:
-        print("Invalid input!")
         
 
 
