@@ -95,10 +95,10 @@ while True:
     elif attemp > num_sortd:
         print("Alto, tente um número mais baixo...")
         attemps.append(attemp)
-        print("Números tentados...")
+        print("Números inseridos...")
         print(attemps)
     elif attemp < num_sortd:
         print("Baixo, tente um número mais alto...")
         attemps.append(attemp)
-        print("Números tentados...")
+        print("Números inseridos...")
         print(attemps)
