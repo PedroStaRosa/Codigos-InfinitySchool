@@ -1,5 +1,5 @@
 from func import div,mult,soma,sub
-from manip_string import count_works,invert_string,palindrome
+from manip_string import count_words,invert_string,palindrome
 
 while True:
 
@@ -62,7 +62,7 @@ while True:
         
         text = input("informe o texto: ")
   
-        result = count_works(text)
+        result = count_words(text)
         print(f"O texto contem {result} palavras")
         
     elif option == 3:
