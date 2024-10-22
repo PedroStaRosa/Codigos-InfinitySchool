@@ -7,7 +7,7 @@ def invert_string(txt):
 
     return txt[::-1]
 
-def count_works(txt):
+def count_words(txt):
     result = txt.split()
     
     return len(result)
