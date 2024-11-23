@@ -1,0 +1,9 @@
+DESAFIO PRÁTICO
+
+Aplicativo de hotelaria
+
+Crie uma classe Hotel que permita:
+gerenciar funcionários, ( OK )
+reservas e quartos de hotel. ( OK )
+Os funcionários devem ter informações como nome, função e salário. ( OK )
+O hotel deve ser capaz de receber reservas ( OK ), atribuí-las a quartos ( OK ) e calcular a conta final ( OK ).
