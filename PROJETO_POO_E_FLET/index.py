@@ -85,6 +85,14 @@ def tela_home(page: ft.Page):
         page.go(f"/reserva?quarto={quarto.numero_quarto}")
 
     lista_clientes = ft.ListView(controls=[], spacing=10, padding=20)
+    image = ft.Row( [ft.Image(
+                src=f"https://static.vecteezy.com/system/resources/thumbnails/008/009/875/small_2x/panoramic-holiday-landscape-luxurious-beach-resort-hotel-swimming-pool-and-beach-chairs-or-loungers-under-umbrellas-with-palm-trees-blue-sunny-sky-summer-island-seaside-travel-vacation-background-photo.jpg",
+                width=1200,
+                height=200,
+                fit=ft.ImageFit.NONE,
+                repeat=ft.ImageRepeat.NO_REPEAT,
+                border_radius=ft.border_radius.all(10),
+            )], expand=1, wrap=False, scroll="always")
     
     for cliente in hotel.clientes:
         lista_clientes.controls.append(ft.Container(content=
@@ -132,6 +140,7 @@ def tela_home(page: ft.Page):
     
     
     layout = ft.Column([
+        image,
         ft.Row([
             ft.Card(expand=1,
                 
