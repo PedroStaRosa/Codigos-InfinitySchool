@@ -10,3 +10,7 @@ class Cliente(Pessoa):
     def id(self):
         return self.__id
     
+    @property    
+    def reserva(self):
+        return self.__reserva
+    

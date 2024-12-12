@@ -3,7 +3,7 @@ from classes.Quarto import Quarto
 from datetime import datetime
 
 class Reserva:
-    def __init__(self, cliente: Cliente, quarto_reservado: Quarto, checkin, chekout, status):
+    def __init__(self, cliente: Cliente, quarto_reservado: Quarto, checkin, chekout, status = "A pagar"):
         self.__cliente = cliente
         self.__quarto_reservado = quarto_reservado
         self.__checkin = datetime.strptime(checkin, "%d/%m/%Y") #GPT
