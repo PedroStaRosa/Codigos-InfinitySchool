@@ -1,0 +1,51 @@
+from bs4 import BeautifulSoup
+import pandas as pd
+import schedule as sc
+import requests as req
+import smtplib
+from email.mime.text import MIMEText
+from email.mime.multipart import MIMEMultipart
+
+email_reme = "seuemail@email.com"
+senha_rem = "sua senha"
+email_dest = "emialDestinataria@emial.com"
+
+# url = 'https://www.mercadolivre.com.br/microsoft-xbox-series-x-1tb/p/MLB16160759?pdp_filters=item_id%3AMLB5195105540&from=gshop&matt_tool=14881968&matt_word=&matt_source=google&matt_campaign_id=21906558132&matt_ad_group_id=172114364282&matt_match_type=&matt_network=g&matt_device=c&matt_creative=721620025853&matt_keyword=&matt_ad_position=&matt_ad_type=pla&matt_merchant_id=735098660&matt_product_id=MLB16160759-product&matt_product_partition_id=2375096927882&matt_target_id=pla-2375096927882&cq_src=google_ads&cq_cmp=21906558132&cq_net=g&cq_plt=gp&cq_med=pla&gad_source=1&gclid=EAIaIQobChMI45bclr-sigMVQBNECB03NDkfEAQYAiABEgJCtvD_BwE'
+
+# response = req.get(url)
+
+# # print(response.text)
+
+# soup = BeautifulSoup(response.text, "html.parser")
+
+# price = soup.find("span", class_="andes-money-amount ui-pdp-price__part andes-money-amount--cents-superscript andes-money-amount--compact")
+
+
+# for p in price:
+#     print(p.get_text())
+
+# # for n in name:
+# #     print(n.get_text())
+
+# # print(price)
+
+url = ""
+def rastrear_produto(url):
+    response = req.get(url)
+    if response.status_code !=200:
+        print(f"Erro ao acessar pagina {response.status_code}")
+        return None
+    soup = BeautifulSoup(response.text, "html.parser")
+
+    try:
+        preco = soup.find_all("span", class_= "andes-money-amount__fraction")
+        nome = soup.find("h1", class_= "ui-pdp-title")
+
+        return nome.get_text(), preco[0].get_text()
+    
+    except AttributeError:
+        print(f"Erro nas informações")
+    
+# result = rastrear_produto("https://www.mercadolivre.com.br/microsoft-xbox-series-x-1tb/p/MLB16160759?pdp_filters=item_id%3AMLB5195105540&from=gshop&matt_tool=14881968&matt_word=&matt_source=google&matt_campaign_id=21906558132&matt_ad_group_id=172114364282&matt_match_type=&matt_network=g&matt_device=c&matt_creative=721620025853&matt_keyword=&matt_ad_position=&matt_ad_type=pla&matt_merchant_id=735098660&matt_product_id=MLB16160759-product&matt_product_partition_id=2375096927882&matt_target_id=pla-2375096927882&cq_src=google_ads&cq_cmp=21906558132&cq_net=g&cq_plt=gp&cq_med=pla&gad_source=1&gclid=EAIaIQobChMI45bclr-sigMVQBNECB03NDkfEAQYAiABEgJCtvD_BwE")
+
+result = rastrear_produto("https://www.mercadolivre.com.br/apple-watch-series-10-gps-caixa-preta-brilhante-de-aluminio-42-mm-pulseira-esportiva-preta-mg/p/MLB40694306?pdp_filters=seller_id%3A442154924#reco_item_pos=1&reco_backend=same-seller-odin&reco_backend_type=low_level&reco_client=pdp-seller_items-above&reco_id=71646f92-fe47-420a-aa05-77f999e14200&reco_model=machinalis-sellers-baseline")
